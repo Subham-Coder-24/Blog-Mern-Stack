@@ -6,7 +6,7 @@ const Home = () => {
 
   const [posts, setPosts] = useState([]);
   const getPost = async ()=>{
-    const response = await fetch('http://localhost:5000/blogs');
+    const response = await fetch('https://blog-mern-stack-rust.vercel.app/blogs');
     const data = await response.json();
   
     setPosts(data.blogs)

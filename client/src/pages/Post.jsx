@@ -12,7 +12,7 @@ const Post = ({ post, setPosts, posts }) => {
     setEditPost(!editPost);
   }
   async function handelDelete(id) {
-    const response = await fetch(`http://localhost:5000/delete-blog/${id}`, {
+    const response = await fetch(`https://blog-mern-stack-rust.vercel.app/delete-blog/${id}`, {
       method: "DELETE",
     });
     if (response.status === 200) {
@@ -25,7 +25,7 @@ const Post = ({ post, setPosts, posts }) => {
 
   async function handelUpdate() {
     const response = await fetch(
-      `http://localhost:5000/update-blog/${post._id}`,
+      `https://blog-mern-stack-rust.vercel.app/${post._id}`,
       {
         method: "PUT",
         headers: {

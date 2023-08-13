@@ -22,7 +22,7 @@ const Create = () => {
   }
 
   const createPost = async ()=>{
-    const response = await fetch("http://localhost:5000/post-blog", {
+    const response = await fetch("https://blog-mern-stack-rust.vercel.app/post-blog", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
