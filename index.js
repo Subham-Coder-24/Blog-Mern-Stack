@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { db } = require("./connection");
-const path = require('path')
+const path = require("path");
 
 const BlogModel = require("./models/blogmodels");
 const app = express();
@@ -37,13 +37,13 @@ app.put("/update-blog/:id", async (req, res) => {
     res.status(404).json({ message: "No blogs found" });
   }
 
-  if(!title && !description){
-    res.json({message:"Please Enter title and description"})
-  }else if(!title){
+  if (!title && !description) {
+    res.json({ message: "Please Enter title and description" });
+  } else if (!title) {
     blogs.description = description;
-  }else if(!description){
+  } else if (!description) {
     blogs.title = title;
-  }else{
+  } else {
     blogs.title = title;
     blogs.description = description;
   }
@@ -62,10 +62,10 @@ app.post("/post-blog", async (req, res) => {
   res.status(200).json({ message: "Blog Succesfully Upadted", blog });
 });
 
-app.get("/",( req,res)=>{
-  app.use(express.static(path.resolve(__dirname,"client","dist")))
-  res.sendFile(path.resolve(__dirname,'client','dist','index.html'))
-})
+app.use(express.static(path.resolve(__dirname, "client", "dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Serveris running on port ${PORT}`);
